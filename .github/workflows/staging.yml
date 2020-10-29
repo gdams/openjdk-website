@@ -17,7 +17,11 @@ jobs:
     - uses: actions/checkout@v2
       with:
         path: gh-actions
-        fetch-depth: 0
+
+    - name: Setup branch
+      run: |
+        git fetch origin $GITHUB_REF:testBranch
+        git checkout testBranch
         
     - name: Add Banner
       run: |
@@ -28,7 +32,7 @@ jobs:
         This is a staging server, currently hosting <a class="light-link" href="https://github.com/AdoptOpenJDK/openjdk-website/pull/$PR_NUMBER"><var>PR $PR_NUMBER</var></a>
         </div>
         EOF
-        
+
     - uses: actions/setup-node@v1
       with:
         node-version: '12'
@@ -39,13 +43,14 @@ jobs:
         cd gh-actions
         npm install
         gulp build
-        
+
     - name: Setup git config
       run: |
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
 
-    - run: |
+    - name: Build Website Files
+      run: |
         cd gh-actions
         git add src/handlebars/partials/header.handlebars
         # Force-add the ignored build output files:

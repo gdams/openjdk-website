@@ -13,6 +13,3 @@ To contribute to the API, or to raise issues, see the separate [GitHub repositor
 # Developers
 
 See the [Contribution Guidelines](CONTRIBUTING.md).
-
-
-testing

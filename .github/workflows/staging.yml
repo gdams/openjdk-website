@@ -20,6 +20,7 @@ jobs:
 
     - name: Setup branch
       run: |
+        cd gh-actions
         git fetch origin $GITHUB_REF:testBranch
         git checkout testBranch
         

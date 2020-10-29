@@ -27,6 +27,10 @@ jobs:
         This is a staging server, currently hosting <a class="light-link" href="https://github.com/AdoptOpenJDK/openjdk-website/pull/$PR_NUMBER"><var>PR $PR_NUMBER</var></a>
         </div>
         EOF
+        
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12'
 
     - name: Install dependencies
       run: |

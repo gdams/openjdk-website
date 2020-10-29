@@ -38,6 +38,11 @@ jobs:
         cd gh-actions
         npm install
         gulp build
+        
+    - name: Setup git config
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
 
     - run: |
         cd gh-actions

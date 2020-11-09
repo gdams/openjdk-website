@@ -99,6 +99,7 @@ jobs:
       with:
         repository: AdoptOpenJDK/openjdk-website-staging
         path: openjdk-website-staging
+        token: ${{ secrets.personal_token }}
         ssh-key: ${{ secrets.gdams_ssh }}
 
     - run: |

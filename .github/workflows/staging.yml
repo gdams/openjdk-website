@@ -99,8 +99,7 @@ jobs:
       with:
         repository: AdoptOpenJDK/openjdk-website-staging
         path: openjdk-website-staging
-        token: ${{ secrets.personal_token }}
-        ssh-key: ${{ secrets.gdams_ssh }}
+        ssh-key: ${{ secrets.GDAMS_SSH }}
 
     - run: |
         cp -R gh-actions/* openjdk-website-staging/$PR_NUMBER
